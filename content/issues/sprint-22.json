@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "issueId": { "value": "sprint-22", "origin": "manual" },
+    "title": { "value": "Guest360 Menu", "origin": "manual" },
+    "sprintRange": { "value": "Sprint 21 → Sprint 22", "origin": "leia" },
+    "theme": {
+      "value": "Prove the Model — Capital Needs on the Critical Path",
+      "origin": "manual"
+    },
+    "date": { "value": "2025-05-02", "origin": "leia" },
+    "tagline": {
+      "value": "Be our guest — streamline, scale, and deliver.",
+      "origin": "manual"
+    }
+  },
+  "toBegin": {
+    "rose": {
+      "label": { "value": "Biggest Wins", "origin": "leia" },
+      "items": [
+        {
+          "value": "Funnel dashboard v2 shipped early — analytics now demo-ready.",
+          "origin": "leia"
+        },
+        {
+          "value": "47 pts delivered vs 48 committed — strongest output this quarter.",
+          "origin": "leia"
+        },
+        {
+          "value": "CCN R2: dining pipeline & park-entry schema both closed.",
+          "origin": "leia"
+        }
+      ]
+    },
+    "bud": {
+      "label": { "value": "What's Developing", "origin": "leia" },
+      "items": [
+        {
+          "value": "S24 commits 62 pts — hinges on a Day-1 BEEP-442 sync.",
+          "origin": "leia"
+        },
+        {
+          "value": "Finish dining pipeline & push funnel dashboard to production.",
+          "origin": "leia"
+        },
+        {
+          "value": "Launch onboarding A/B test; scale real-time aggregation.",
+          "origin": "leia"
+        }
+      ]
+    },
+    "thorn": {
+      "label": { "value": "Biggest Blockers", "origin": "leia" },
+      "items": [
+        {
+          "value": "BEEP-442 dependency blocking 3 stories — escalate by Day 2.",
+          "origin": "leia"
+        },
+        {
+          "value": "Integration test environment unstable — root cause by Day 3.",
+          "origin": "leia"
+        },
+        {
+          "value": "Two retro actions still open (sync cadence, criteria template).",
+          "origin": "leia"
+        }
+      ]
+    }
+  },
+  "mainCourse": [
+    {
+      "n": 1,
+      "name": { "value": "CCN Release 2", "origin": "leia" },
+      "status": { "value": "on-track", "origin": "leia" },
+      "progress": {
+        "value": "61% complete (+5%); dining pipeline & park-entry schema delivered.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Search & Guest Events foundations advancing — supports the $12M revenue path.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "Park-entry schema pending external sign-off (Low — Chu following up).",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Integrate park-entry events with identity resolution.",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 2,
+      "name": { "value": "Project BEEP", "origin": "leia" },
+      "status": { "value": "at-risk", "origin": "leia" },
+      "progress": {
+        "value": "58% complete (+4%); push-notification targeting rules shipped.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Capabilities advancing but pace trails the $20M enablement target.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "BEEP-442 dependency; 2 epic requirements still incomplete (Brian).",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Clear cross-platform API gateway blockers; ship targeting v2.",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 3,
+      "name": { "value": "Agile Process", "origin": "leia" },
+      "status": { "value": "on-track", "origin": "leia" },
+      "progress": {
+        "value": "Velocity 54 pts; team health 7.8 (+0.6); cadence now measurable.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Standup format & pair programming cited as key process wins.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "Dependency meetings still ad hoc (recurring retro theme).",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Stand up bi-weekly dependency sync; define acceptance-criteria template.",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 4,
+      "name": { "value": "Guest360 API", "origin": "leia" },
+      "status": { "value": "at-risk", "origin": "leia" },
+      "progress": {
+        "value": "Gateway config delivered (8 pts); 18 pts of integration committed S24.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "\"Walk\" API path advancing toward the Salesforce Data Cloud transition.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "BEEP-442 (High); integration test environment instability (High).",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Front-load BEEP-442 sync Day 1; deliver webhook reliability.",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 5,
+      "name": { "value": "Guest Events Onboarding", "origin": "leia" },
+      "status": { "value": "on-track", "origin": "leia" },
+      "progress": {
+        "value": "65% complete; park-entry event schema update completed S23.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Standardized schema moves us toward self-service onboarding.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "External sign-off on schema change (Low — non-blocking).",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Deliver park-entry event integration (Taylor, 5 pts, S24).",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 6,
+      "name": { "value": "Adobe AEP / AJO", "origin": "leia" },
+      "status": { "value": "at-risk", "origin": "leia" },
+      "progress": {
+        "value": "45% complete; technical stack path blocked by API dependencies.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Enables vendor decision, lower-env setup & integration planning.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "Cascading from BEEP-442 and test environment instability.",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Confirm feasibility post-BEEP-442; escalate to BEEP lead by Day 2.",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 7,
+      "name": { "value": "AI SDLC", "origin": "leia" },
+      "status": { "value": "on-track", "origin": "leia" },
+      "progress": {
+        "value": "ORBIT AI panels generating exec-ready narratives; faster code review.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "AI summaries cut Scrum Master prep time and speed leadership comms.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "Documentation lagging behind shipped features.",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Document shipped Analytics features in Confluence (Elaine, S25).",
+        "origin": "leia"
+      }
+    },
+    {
+      "n": 8,
+      "name": { "value": "Guest360 Demo App", "origin": "leia" },
+      "status": { "value": "on-track", "origin": "leia" },
+      "progress": {
+        "value": "85% complete (+12%); funnel dashboard v2 & A/B results shipped.",
+        "origin": "leia"
+      },
+      "impact": {
+        "value": "Demo-ready analytics & activation assets for client/leader presentations.",
+        "origin": "ai"
+      },
+      "blockers": {
+        "value": "Samantha partial availability days 6–10 — 3 pts shift to Alex.",
+        "origin": "leia"
+      },
+      "next": {
+        "value": "Deploy funnel dashboard & A/B test to production.",
+        "origin": "leia"
+      }
+    }
+  ],
+  "dessert": {
+    "leiaLinks": [
+      {
+        "label": { "value": "Guest360 Docs / ORBIT", "origin": "leia" },
+        "url": { "value": "https://angelaayay29.github.io/ORBIT/", "origin": "leia" }
+      },
+      {
+        "label": { "value": "Sprint 21 Retro", "origin": "leia" },
+        "url": {
+          "value": "https://angelaayay29.github.io/ORBIT/#retro",
+          "origin": "leia"
+        }
+      },
+      {
+        "label": { "value": "Sprint 22 Planning", "origin": "leia" },
+        "url": {
+          "value": "https://angelaayay29.github.io/ORBIT/#planning",
+          "origin": "leia"
+        }
+      }
+    ],
+    "manualLinks": [
+      {
+        "label": { "value": "Q4 / Q1 Roadmap", "origin": "manual" },
+        "url": { "value": "", "origin": "manual" }
+      },
+      {
+        "label": { "value": "Demo / Presentation", "origin": "manual" },
+        "url": { "value": "", "origin": "manual" }
+      },
+      {
+        "label": { "value": "Newsletter Archive", "origin": "manual" },
+        "url": { "value": "/", "origin": "manual" }
+      }
+    ]
+  }
+}

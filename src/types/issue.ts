@@ -97,6 +97,15 @@ export interface IssueSummary {
   theme: string;
   date: string;
   source: "repo" | "published";
+  onTrack: number;
+  atRisk: number;
+  readMinutes: number;
+}
+
+export interface ExecutiveBriefing {
+  latestIssue: IssueSummary;
+  totalIssues: number;
+  headlineRose?: string;
 }
 
 export type UserRole = "editor" | "viewer";

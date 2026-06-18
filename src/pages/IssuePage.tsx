@@ -59,7 +59,7 @@ export function IssuePage() {
 
   const downloadPdf = () => {
     window.print();
-    showToast("Save as PDF · set margins to None or Minimum for one page");
+    showToast("Save as PDF · enable Background graphics · margins Default or Minimum");
   };
 
   const simulateEditorEmail = () => {

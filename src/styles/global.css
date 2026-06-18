@@ -68,51 +68,30 @@ svg {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 0.15in;
+    margin: 0.22in;
   }
 
   html,
   body {
-    width: 210mm;
-    height: 297mm;
     margin: 0 !important;
     padding: 0 !important;
-    overflow: hidden;
     background: var(--ivory) !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
-  body {
-    display: flex;
-    justify-content: center;
-  }
-
-  /* Print only the newsletter menu, not chrome around it */
-  body * {
-    visibility: hidden;
-  }
-
-  .menu-page,
-  .menu-page * {
-    visibility: visible;
+  .no-print {
+    display: none !important;
   }
 
   .menu-page {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1000px;
-    padding: 0.2in 0.25in 0.15in !important;
+    width: 100% !important;
     max-width: none !important;
-    margin: 0 !important;
-    transform: scale(0.63);
-    transform-origin: top left;
+    margin: 0 auto !important;
+    padding: 0.1in 0.05in 0.15in !important;
     page-break-after: avoid;
     page-break-inside: avoid;
-  }
-
-  .no-print {
-    display: none !important;
+    /* Slight shrink only — keeps one page without squashing to the top */
+    zoom: 0.9;
   }
 }

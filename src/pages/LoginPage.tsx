@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { DEMO_CREDENTIALS } from "../config/auth";
 
@@ -38,9 +38,10 @@ export function LoginPage() {
         </p>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label>
+          <label htmlFor="login-email">
             Email
             <input
+              id="login-email"
               type="email"
               autoComplete="username"
               value={email}
@@ -48,9 +49,10 @@ export function LoginPage() {
               required
             />
           </label>
-          <label>
+          <label htmlFor="login-password">
             Password
             <input
+              id="login-password"
               type="password"
               autoComplete="current-password"
               value={password}

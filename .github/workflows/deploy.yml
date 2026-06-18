@@ -32,6 +32,11 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
 
+      - name: Build print HTML for PDFs
+        run: npm run build:print-html
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+
       - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
@@ -44,6 +49,7 @@ jobs:
             sleep 1
           done
           curl -sf "$PREVIEW_URL" > /dev/null || (echo "Preview server failed to start at $PREVIEW_URL" && exit 1)
+          curl -sf "http://127.0.0.1:4173/${{ github.event.repository.name }}/print/sprint-24.html" > /dev/null || (echo "Print HTML not found — build:print-html may have failed" && exit 1)
           BASE_PATH=/${{ github.event.repository.name }}/ npm run generate-pdfs
 
       - uses: actions/upload-pages-artifact@v3

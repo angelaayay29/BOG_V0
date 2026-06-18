@@ -8,6 +8,7 @@
     "validate": "tsx scripts/validate-issues.ts",
     "seed": "tsx scripts/write-seed-issue.ts",
     "build": "npm run validate && vite build && tsx scripts/post-build.ts",
+    "build:print-html": "tsx scripts/build-print-html.ts",
     "preview": "vite preview",
     "generate-pdfs": "tsx scripts/generate-pdfs.ts",
     "build:all": "npm run build && npm run generate-pdfs"

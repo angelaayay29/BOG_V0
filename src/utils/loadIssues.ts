@@ -1,6 +1,9 @@
 import type { IssueSummary, NewsletterIssue } from "../types/issue";
+import { formatIssueDate } from "./formatIssueDate";
 import { getPublishedIssueById, getPublishedIssues } from "./publishedIssues";
 import { validateIssue } from "./validateIssue";
+
+export { formatIssueDate };
 
 const issueModules = import.meta.glob("../../content/issues/*.json", {
   eager: true,
@@ -56,15 +59,6 @@ export function getIssueById(issueId: string): NewsletterIssue | undefined {
   const published = getPublishedIssueById(issueId);
   if (published) return published;
   return loadRepoIssues().find((issue) => issue.meta.issueId === issueId);
-}
-
-export function formatIssueDate(date: string): string {
-  const parsed = new Date(`${date}T00:00:00`);
-  return parsed.toLocaleDateString("en-US", {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
-  });
 }
 
 export function getLatestRepoIssue(): NewsletterIssue | undefined {

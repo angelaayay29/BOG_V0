@@ -1,5 +1,5 @@
 import type { IssueMeta } from "../types/issue";
-import { formatIssueDate } from "../utils/loadIssues";
+import { formatIssueDate } from "../utils/formatIssueDate";
 import { MenuOrnament } from "./MenuOrnament";
 
 interface MenuMastheadProps {

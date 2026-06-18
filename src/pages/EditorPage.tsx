@@ -4,11 +4,21 @@ import { DISTRIBUTION_LIST } from "../config/distribution";
 import { simulateEmailSend } from "../services/emailSimulation";
 import { getLatestRepoIssue } from "../utils/loadIssues";
 import { getDraft, publishIssue, saveDraft } from "../utils/publishedIssues";
+import { buildSummaryFromCards } from "../utils/unwrapIssue";
 import { validateEditableIssue } from "../utils/validateIssue";
 import { MenuLayout } from "../components/MenuLayout";
 
 function createBlankIssue(): NewsletterIssue {
   const today = new Date().toISOString().slice(0, 10);
+  const mainCourse = Array.from({ length: 8 }, (_, index) => ({
+    n: index + 1,
+    name: "",
+    status: "on-track" as IssueStatus,
+    progress: "",
+    impact: "",
+    blockers: "",
+    next: "",
+  }));
   return {
     meta: {
       issueId: `sprint-${Date.now()}`,
@@ -18,20 +28,13 @@ function createBlankIssue(): NewsletterIssue {
       date: today,
       tagline: "Be our guest — streamline, scale, and deliver.",
     },
+    summary: buildSummaryFromCards(mainCourse),
     toBegin: {
       rose: { label: "Biggest Wins", items: ["", "", ""] },
       bud: { label: "What's Developing", items: ["", "", ""] },
       thorn: { label: "Biggest Blockers", items: ["", "", ""] },
     },
-    mainCourse: Array.from({ length: 8 }, (_, index) => ({
-      n: index + 1,
-      name: "",
-      status: "on-track" as IssueStatus,
-      progress: "",
-      impact: "",
-      blockers: "",
-      next: "",
-    })),
+    mainCourse,
     dessert: {
       leiaLinks: [
         { label: "Guest360 Docs / ORBIT", url: "https://angelaayay29.github.io/ORBIT/" },
@@ -107,7 +110,11 @@ export function EditorPage() {
       const mainCourse = current.mainCourse.map((card, cardIndex) =>
         cardIndex === index ? { ...card, [field]: value } : card,
       );
-      return { ...current, mainCourse };
+      return {
+        ...current,
+        mainCourse,
+        summary: buildSummaryFromCards(mainCourse),
+      };
     });
   };
 

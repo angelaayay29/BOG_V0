@@ -8,7 +8,7 @@ import { getIssueById } from "../utils/loadIssues";
 
 export function IssuePage() {
   const { issueId } = useParams<{ issueId: string }>();
-  const { isEditor } = useAuth();
+  const { isEditor, session } = useAuth();
   const [refreshKey, setRefreshKey] = useState(0);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -30,22 +30,26 @@ export function IssuePage() {
         <p>
           We could not find a newsletter for <code>{issueId}</code>.
         </p>
-        <Link className="btn btn-primary" to="/">
-          Back to archive
-        </Link>
+        {session ? (
+          <Link className="btn btn-primary" to="/">
+            Back to archive
+          </Link>
+        ) : (
+          <Link className="btn btn-primary" to="/login">
+            Sign in to archive
+          </Link>
+        )}
       </div>
     );
   }
 
   const baseUrl = import.meta.env.BASE_URL;
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}${baseUrl}issues/${issue.meta.issueId}`
-      : `${baseUrl}issues/${issue.meta.issueId}`;
+  const shareUrl = `${window.location.origin}${baseUrl}issues/${issue.meta.issueId}`;
+  const pdfUrl = `${baseUrl}issues/${issue.meta.issueId}.pdf`;
 
   const showToast = (message: string) => {
     setToast(message);
-    window.setTimeout(() => setToast(null), 2400);
+    window.setTimeout(() => setToast(null), 2800);
   };
 
   const copyShareLink = async () => {
@@ -57,34 +61,58 @@ export function IssuePage() {
     }
   };
 
-  const downloadPdf = () => {
+  const downloadPdf = async () => {
+    try {
+      const response = await fetch(pdfUrl, { method: "HEAD" });
+      if (response.ok) {
+        window.open(pdfUrl, "_blank", "noopener,noreferrer");
+        showToast("Opening PDF download");
+        return;
+      }
+    } catch {
+      // fall through to print
+    }
     window.print();
-    showToast("Save as PDF · enable Background graphics · margins Default or Minimum");
+    showToast("Use Save as PDF in the print dialog");
   };
 
-  const simulateEditorEmail = () => {
-    const result = simulateEmailSend(issue);
-    showToast(
-      `Simulated email to ${result.recipients.length} recipients (${DISTRIBUTION_LIST[0]}… )`,
+  const emailShare = () => {
+    if (isEditor) {
+      const result = simulateEmailSend(issue);
+      showToast(
+        `Simulated distribution email to ${result.recipients.length} recipients`,
+      );
+      return;
+    }
+    const subject = encodeURIComponent(
+      `${issue.meta.title} — ${issue.meta.sprintRange}`,
     );
+    const body = encodeURIComponent(
+      `Be Our Guest360 newsletter for ${issue.meta.sprintRange}.\n\nRead online: ${shareUrl}`,
+    );
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
 
   return (
     <>
       <div className="issue-toolbar no-print">
-        <Link className="btn btn-ghost" to="/">
-          ← Archive
-        </Link>
+        {session ? (
+          <Link className="btn btn-ghost" to="/">
+            ← Archive
+          </Link>
+        ) : (
+          <Link className="btn btn-ghost" to="/login">
+            Sign in
+          </Link>
+        )}
         <button type="button" className="btn btn-secondary" onClick={copyShareLink}>
-          Copy link
+          Copy share link
         </button>
-        {isEditor ? (
-          <button type="button" className="btn btn-secondary" onClick={simulateEditorEmail}>
-            Email distribution
-          </button>
-        ) : null}
-        <button type="button" className="btn btn-secondary" onClick={downloadPdf}>
-          Print / Save PDF
+        <button type="button" className="btn btn-secondary" onClick={emailShare}>
+          {isEditor ? "Email distribution" : "Email"}
+        </button>
+        <button type="button" className="btn btn-primary" onClick={downloadPdf}>
+          Download PDF
         </button>
       </div>
       <MenuLayout issue={issue} key={refreshKey} />

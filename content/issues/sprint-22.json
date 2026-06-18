@@ -1,28 +1,57 @@
 {
   "meta": {
-    "issueId": { "value": "sprint-22", "origin": "manual" },
-    "title": { "value": "Guest360 Menu", "origin": "manual" },
-    "sprintRange": { "value": "Sprint 21 → Sprint 22", "origin": "leia" },
-    "theme": {
-      "value": "Prove the Model — Capital Needs on the Critical Path",
+    "issueId": {
+      "value": "sprint-22",
       "origin": "manual"
     },
-    "date": { "value": "2025-05-02", "origin": "leia" },
-    "tagline": {
-      "value": "Be our guest — streamline, scale, and deliver.",
+    "title": {
+      "value": "Guest360 Menu",
       "origin": "manual"
+    },
+    "sprintRange": {
+      "value": "Sprint 21 \u2192 Sprint 22",
+      "origin": "leia"
+    },
+    "theme": {
+      "value": "Prove the Model \u2014 Capital Needs on the Critical Path",
+      "origin": "manual"
+    },
+    "date": {
+      "value": "2025-05-02",
+      "origin": "leia"
+    },
+    "tagline": {
+      "value": "Be our guest \u2014 streamline, scale, and deliver.",
+      "origin": "manual"
+    }
+  },
+  "summary": {
+    "onTrack": {
+      "value": 6,
+      "origin": "leia"
+    },
+    "atRisk": {
+      "value": 2,
+      "origin": "leia"
+    },
+    "overallStatus": {
+      "value": "on-track",
+      "origin": "leia"
     }
   },
   "toBegin": {
     "rose": {
-      "label": { "value": "Biggest Wins", "origin": "leia" },
+      "label": {
+        "value": "Biggest Wins",
+        "origin": "leia"
+      },
       "items": [
         {
-          "value": "Funnel dashboard v2 shipped early — analytics now demo-ready.",
+          "value": "Funnel dashboard v2 shipped early \u2014 analytics now demo-ready.",
           "origin": "leia"
         },
         {
-          "value": "47 pts delivered vs 48 committed — strongest output this quarter.",
+          "value": "47 pts delivered vs 48 committed \u2014 strongest output this quarter.",
           "origin": "leia"
         },
         {
@@ -32,10 +61,13 @@
       ]
     },
     "bud": {
-      "label": { "value": "What's Developing", "origin": "leia" },
+      "label": {
+        "value": "What's Developing",
+        "origin": "leia"
+      },
       "items": [
         {
-          "value": "S24 commits 62 pts — hinges on a Day-1 BEEP-442 sync.",
+          "value": "S24 commits 62 pts \u2014 hinges on a Day-1 BEEP-442 sync.",
           "origin": "leia"
         },
         {
@@ -49,14 +81,17 @@
       ]
     },
     "thorn": {
-      "label": { "value": "Biggest Blockers", "origin": "leia" },
+      "label": {
+        "value": "Biggest Blockers",
+        "origin": "leia"
+      },
       "items": [
         {
-          "value": "BEEP-442 dependency blocking 3 stories — escalate by Day 2.",
+          "value": "BEEP-442 dependency blocking 3 stories \u2014 escalate by Day 2.",
           "origin": "leia"
         },
         {
-          "value": "Integration test environment unstable — root cause by Day 3.",
+          "value": "Integration test environment unstable \u2014 root cause by Day 3.",
           "origin": "leia"
         },
         {
@@ -69,18 +104,24 @@
   "mainCourse": [
     {
       "n": 1,
-      "name": { "value": "CCN Release 2", "origin": "leia" },
-      "status": { "value": "on-track", "origin": "leia" },
+      "name": {
+        "value": "CCN Release 2",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "61% complete (+5%); dining pipeline & park-entry schema delivered.",
         "origin": "leia"
       },
       "impact": {
-        "value": "Search & Guest Events foundations advancing — supports the $12M revenue path.",
+        "value": "Search & Guest Events foundations advancing \u2014 supports the $12M revenue path.",
         "origin": "ai"
       },
       "blockers": {
-        "value": "Park-entry schema pending external sign-off (Low — Chu following up).",
+        "value": "Park-entry schema pending external sign-off (Low \u2014 Chu following up).",
         "origin": "leia"
       },
       "next": {
@@ -90,8 +131,14 @@
     },
     {
       "n": 2,
-      "name": { "value": "Project BEEP", "origin": "leia" },
-      "status": { "value": "at-risk", "origin": "leia" },
+      "name": {
+        "value": "Project BEEP",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "at-risk",
+        "origin": "leia"
+      },
       "progress": {
         "value": "58% complete (+4%); push-notification targeting rules shipped.",
         "origin": "leia"
@@ -111,8 +158,14 @@
     },
     {
       "n": 3,
-      "name": { "value": "Agile Process", "origin": "leia" },
-      "status": { "value": "on-track", "origin": "leia" },
+      "name": {
+        "value": "Agile Process",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "Velocity 54 pts; team health 7.8 (+0.6); cadence now measurable.",
         "origin": "leia"
@@ -132,8 +185,14 @@
     },
     {
       "n": 4,
-      "name": { "value": "Guest360 API", "origin": "leia" },
-      "status": { "value": "at-risk", "origin": "leia" },
+      "name": {
+        "value": "Guest360 API",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "Gateway config delivered (8 pts); 18 pts of integration committed S24.",
         "origin": "leia"
@@ -153,8 +212,14 @@
     },
     {
       "n": 5,
-      "name": { "value": "Guest Events Onboarding", "origin": "leia" },
-      "status": { "value": "on-track", "origin": "leia" },
+      "name": {
+        "value": "Guest Events Onboarding",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "65% complete; park-entry event schema update completed S23.",
         "origin": "leia"
@@ -164,7 +229,7 @@
         "origin": "ai"
       },
       "blockers": {
-        "value": "External sign-off on schema change (Low — non-blocking).",
+        "value": "External sign-off on schema change (Low \u2014 non-blocking).",
         "origin": "leia"
       },
       "next": {
@@ -174,8 +239,14 @@
     },
     {
       "n": 6,
-      "name": { "value": "Adobe AEP / AJO", "origin": "leia" },
-      "status": { "value": "at-risk", "origin": "leia" },
+      "name": {
+        "value": "Adobe AEP / AJO",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "45% complete; technical stack path blocked by API dependencies.",
         "origin": "leia"
@@ -195,8 +266,14 @@
     },
     {
       "n": 7,
-      "name": { "value": "AI SDLC", "origin": "leia" },
-      "status": { "value": "on-track", "origin": "leia" },
+      "name": {
+        "value": "AI SDLC",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "ORBIT AI panels generating exec-ready narratives; faster code review.",
         "origin": "leia"
@@ -216,8 +293,14 @@
     },
     {
       "n": 8,
-      "name": { "value": "Guest360 Demo App", "origin": "leia" },
-      "status": { "value": "on-track", "origin": "leia" },
+      "name": {
+        "value": "Guest360 Demo App",
+        "origin": "leia"
+      },
+      "status": {
+        "value": "on-track",
+        "origin": "leia"
+      },
       "progress": {
         "value": "85% complete (+12%); funnel dashboard v2 & A/B results shipped.",
         "origin": "leia"
@@ -227,7 +310,7 @@
         "origin": "ai"
       },
       "blockers": {
-        "value": "Samantha partial availability days 6–10 — 3 pts shift to Alex.",
+        "value": "Samantha partial availability days 6\u201310 \u2014 3 pts shift to Alex.",
         "origin": "leia"
       },
       "next": {
@@ -239,18 +322,30 @@
   "dessert": {
     "leiaLinks": [
       {
-        "label": { "value": "Guest360 Docs / ORBIT", "origin": "leia" },
-        "url": { "value": "https://angelaayay29.github.io/ORBIT/", "origin": "leia" }
+        "label": {
+          "value": "Guest360 Docs / ORBIT",
+          "origin": "leia"
+        },
+        "url": {
+          "value": "https://angelaayay29.github.io/ORBIT/",
+          "origin": "leia"
+        }
       },
       {
-        "label": { "value": "Sprint 21 Retro", "origin": "leia" },
+        "label": {
+          "value": "Sprint 21 Retro",
+          "origin": "leia"
+        },
         "url": {
           "value": "https://angelaayay29.github.io/ORBIT/#retro",
           "origin": "leia"
         }
       },
       {
-        "label": { "value": "Sprint 22 Planning", "origin": "leia" },
+        "label": {
+          "value": "Sprint 22 Planning",
+          "origin": "leia"
+        },
         "url": {
           "value": "https://angelaayay29.github.io/ORBIT/#planning",
           "origin": "leia"
@@ -259,16 +354,34 @@
     ],
     "manualLinks": [
       {
-        "label": { "value": "Q4 / Q1 Roadmap", "origin": "manual" },
-        "url": { "value": "", "origin": "manual" }
+        "label": {
+          "value": "Q4 / Q1 Roadmap",
+          "origin": "manual"
+        },
+        "url": {
+          "value": "",
+          "origin": "manual"
+        }
       },
       {
-        "label": { "value": "Demo / Presentation", "origin": "manual" },
-        "url": { "value": "", "origin": "manual" }
+        "label": {
+          "value": "Demo / Presentation",
+          "origin": "manual"
+        },
+        "url": {
+          "value": "",
+          "origin": "manual"
+        }
       },
       {
-        "label": { "value": "Newsletter Archive", "origin": "manual" },
-        "url": { "value": "/", "origin": "manual" }
+        "label": {
+          "value": "Newsletter Archive",
+          "origin": "manual"
+        },
+        "url": {
+          "value": "/",
+          "origin": "manual"
+        }
       }
     ]
   }

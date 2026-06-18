@@ -1,4 +1,5 @@
 import type { NewsletterIssue } from "../types/issue";
+import { buildSummaryFromCards } from "./unwrapIssue";
 import { validateEditableIssue } from "./validateIssue";
 
 const PUBLISHED_KEY = "bog360-published-issues";
@@ -30,15 +31,19 @@ export function getPublishedIssueById(issueId: string): NewsletterIssue | undefi
 }
 
 export function publishIssue(issue: NewsletterIssue): void {
-  const error = validateEditableIssue(issue);
+  const withSummary: NewsletterIssue = {
+    ...issue,
+    summary: buildSummaryFromCards(issue.mainCourse),
+  };
+  const error = validateEditableIssue(withSummary);
   if (error) {
     throw new Error(error);
   }
 
   const existing = readStorage<StoredIssue[]>(PUBLISHED_KEY, []);
   const next: StoredIssue[] = [
-    { ...issue, publishedAt: new Date().toISOString() },
-    ...existing.filter((item) => item.meta.issueId !== issue.meta.issueId),
+    { ...withSummary, publishedAt: new Date().toISOString() },
+    ...existing.filter((item) => item.meta.issueId !== withSummary.meta.issueId),
   ];
   writeStorage(PUBLISHED_KEY, next);
   clearDraft();

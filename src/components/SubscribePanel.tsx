@@ -20,14 +20,8 @@ export function SubscribePanel() {
 
   return (
     <aside className="subscribe-panel" aria-labelledby="subscribe-heading">
-      <div className="subscribe-panel__icon" aria-hidden="true">
-        ✉
-      </div>
-      <h2 id="subscribe-heading">Executive notifications</h2>
-      <p>
-        Get an email when each sprint menu is published — skimmable updates for
-        leadership, no Jira noise.
-      </p>
+      <h2 id="subscribe-heading">Get notified</h2>
+      <p>New menu published each sprint — one email, executive summary only.</p>
       <form className="subscribe-form" onSubmit={handleSubmit}>
         <label htmlFor="subscribe-email" className="sr-only">
           Work email for newsletter notifications

@@ -53,17 +53,15 @@ export interface IssueMeta {
   tagline: string;
 }
 
-export interface RawIssueMeta {
-  issueId: TaggedValue<string>;
-  title: TaggedValue<string>;
-  sprintRange: TaggedValue<string>;
-  theme: TaggedValue<string>;
-  date: TaggedValue<string>;
-  tagline: TaggedValue<string>;
+export interface IssueSummaryStats {
+  onTrack: number;
+  atRisk: number;
+  overallStatus: IssueStatus | "mixed";
 }
 
 export interface NewsletterIssue {
   meta: IssueMeta;
+  summary: IssueSummaryStats;
   toBegin: {
     rose: ToBeginSection;
     bud: ToBeginSection;
@@ -76,8 +74,24 @@ export interface NewsletterIssue {
   };
 }
 
+export interface RawIssueMeta {
+  issueId: TaggedValue<string>;
+  title: TaggedValue<string>;
+  sprintRange: TaggedValue<string>;
+  theme: TaggedValue<string>;
+  date: TaggedValue<string>;
+  tagline: TaggedValue<string>;
+}
+
+export interface RawIssueSummary {
+  onTrack: TaggedValue<number>;
+  atRisk: TaggedValue<number>;
+  overallStatus: TaggedValue<IssueStatus | "mixed">;
+}
+
 export interface RawNewsletterIssue {
   meta: RawIssueMeta;
+  summary: RawIssueSummary;
   toBegin: {
     rose: RawToBeginSection;
     bud: RawToBeginSection;
@@ -99,13 +113,7 @@ export interface IssueSummary {
   source: "repo" | "published";
   onTrack: number;
   atRisk: number;
-  readMinutes: number;
-}
-
-export interface ExecutiveBriefing {
-  latestIssue: IssueSummary;
-  totalIssues: number;
-  headlineRose?: string;
+  overallStatus: IssueSummaryStats["overallStatus"];
 }
 
 export type UserRole = "editor" | "viewer";

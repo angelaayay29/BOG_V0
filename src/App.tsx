@@ -26,14 +26,8 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/issues/:issueId"
-            element={
-              <ProtectedRoute>
-                <IssuePage />
-              </ProtectedRoute>
-            }
-          />
+          {/* Public per spec: stable share links work without login */}
+          <Route path="/issues/:issueId" element={<IssuePage />} />
           <Route
             path="/editor"
             element={

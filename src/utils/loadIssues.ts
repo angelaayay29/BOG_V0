@@ -1,10 +1,5 @@
-import type { ExecutiveBriefing, IssueSummary, NewsletterIssue } from "../types/issue";
+import type { IssueSummary, NewsletterIssue } from "../types/issue";
 import { formatIssueDate } from "./formatIssueDate";
-import {
-  countStatuses,
-  estimateReadMinutes,
-  getHeadlineWin,
-} from "./issueInsights";
 import { getPublishedIssueById, getPublishedIssues } from "./publishedIssues";
 import { validateIssue } from "./validateIssue";
 
@@ -24,7 +19,6 @@ function toSummary(
   issue: NewsletterIssue,
   source: IssueSummary["source"],
 ): IssueSummary {
-  const { onTrack, atRisk } = countStatuses(issue);
   return {
     issueId: issue.meta.issueId,
     title: issue.meta.title,
@@ -32,9 +26,9 @@ function toSummary(
     theme: issue.meta.theme,
     date: issue.meta.date,
     source,
-    onTrack,
-    atRisk,
-    readMinutes: estimateReadMinutes(issue),
+    onTrack: issue.summary.onTrack,
+    atRisk: issue.summary.atRisk,
+    overallStatus: issue.summary.overallStatus,
   };
 }
 
@@ -71,18 +65,6 @@ export function getIssueSummaries(): IssueSummary[] {
   return getAllIssues().map((issue) =>
     toSummary(issue, publishedIds.has(issue.meta.issueId) ? "published" : "repo"),
   );
-}
-
-export function getExecutiveBriefing(): ExecutiveBriefing | null {
-  const issues = getAllIssues();
-  if (issues.length === 0) return null;
-  const latest = issues[0];
-  const summaries = getIssueSummaries();
-  return {
-    latestIssue: summaries[0],
-    totalIssues: issues.length,
-    headlineRose: getHeadlineWin(latest),
-  };
 }
 
 export function getIssueById(issueId: string): NewsletterIssue | undefined {

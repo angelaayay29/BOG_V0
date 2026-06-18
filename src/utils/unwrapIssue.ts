@@ -1,6 +1,8 @@
 import type {
   ContentOrigin,
   IssueLink,
+  IssueStatus,
+  IssueSummaryStats,
   MainCourseCard,
   NewsletterIssue,
   RawNewsletterIssue,
@@ -43,6 +45,11 @@ export function normalizeIssue(raw: RawNewsletterIssue): NewsletterIssue {
       date: unwrap(raw.meta.date),
       tagline: unwrap(raw.meta.tagline),
     },
+    summary: {
+      onTrack: unwrap(raw.summary.onTrack),
+      atRisk: unwrap(raw.summary.atRisk),
+      overallStatus: unwrap(raw.summary.overallStatus),
+    },
     toBegin: {
       rose: {
         label: unwrap(raw.toBegin.rose.label),
@@ -75,6 +82,17 @@ export function normalizeIssue(raw: RawNewsletterIssue): NewsletterIssue {
   };
 }
 
+export function buildSummaryFromCards(
+  mainCourse: MainCourseCard[],
+): IssueSummaryStats {
+  const onTrack = mainCourse.filter((card) => card.status === "on-track").length;
+  const atRisk = mainCourse.filter((card) => card.status === "at-risk").length;
+  let overallStatus: IssueSummaryStats["overallStatus"] = "mixed";
+  if (atRisk === 0 || onTrack > atRisk) overallStatus = "on-track";
+  else if (atRisk > onTrack) overallStatus = "at-risk";
+  return { onTrack, atRisk, overallStatus };
+}
+
 export function toRawIssue(issue: NewsletterIssue): RawNewsletterIssue {
   const fieldOrigins = {
     meta: {
@@ -85,6 +103,7 @@ export function toRawIssue(issue: NewsletterIssue): RawNewsletterIssue {
       date: "leia" as const,
       tagline: "manual" as const,
     },
+    summary: "leia" as const,
     toBegin: "leia" as const,
     impact: "ai" as const,
     main: "leia" as const,
@@ -100,6 +119,11 @@ export function toRawIssue(issue: NewsletterIssue): RawNewsletterIssue {
       theme: tag(issue.meta.theme, fieldOrigins.meta.theme),
       date: tag(issue.meta.date, fieldOrigins.meta.date),
       tagline: tag(issue.meta.tagline, fieldOrigins.meta.tagline),
+    },
+    summary: {
+      onTrack: tag(issue.summary.onTrack, fieldOrigins.summary),
+      atRisk: tag(issue.summary.atRisk, fieldOrigins.summary),
+      overallStatus: tag(issue.summary.overallStatus, fieldOrigins.summary),
     },
     toBegin: {
       rose: {

@@ -58,11 +58,8 @@ export function IssuePage() {
   };
 
   const downloadPdf = () => {
-    window.open(`${baseUrl}issues/${issue.meta.issueId}.pdf`, "_blank", "noopener,noreferrer");
-  };
-
-  const printPdf = () => {
     window.print();
+    showToast("Choose Save as PDF in the print dialog");
   };
 
   const simulateEditorEmail = () => {
@@ -86,11 +83,8 @@ export function IssuePage() {
             Email distribution
           </button>
         ) : null}
-        <button type="button" className="btn btn-secondary" onClick={printPdf}>
-          Print
-        </button>
-        <button type="button" className="btn btn-primary" onClick={downloadPdf}>
-          Download PDF
+        <button type="button" className="btn btn-secondary" onClick={downloadPdf}>
+          Print / Save PDF
         </button>
       </div>
       <MenuLayout issue={issue} key={refreshKey} />

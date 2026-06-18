@@ -40,8 +40,6 @@ export function ArchivePage() {
     });
   }, [issues, query]);
 
-  const baseUrl = import.meta.env.BASE_URL;
-
   return (
     <div className="archive-page">
       <header className="archive-header">
@@ -91,13 +89,12 @@ export function ArchivePage() {
                 >
                   Read
                 </Link>
-                <a
+                <Link
                   className="btn btn-secondary"
-                  href={`${baseUrl}issues/${issue.issueId}.pdf`}
-                  download
+                  to={`/issues/${issue.issueId}`}
                 >
-                  Download PDF
-                </a>
+                  Print / Save PDF
+                </Link>
               </div>
             </article>
           ))}

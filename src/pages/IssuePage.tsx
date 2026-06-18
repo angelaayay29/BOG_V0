@@ -59,7 +59,7 @@ export function IssuePage() {
 
   const downloadPdf = () => {
     window.print();
-    showToast("Choose Save as PDF in the print dialog");
+    showToast("Save as PDF · set margins to None or Minimum for one page");
   };
 
   const simulateEditorEmail = () => {
